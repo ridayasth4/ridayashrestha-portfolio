@@ -19,7 +19,8 @@ ul{
     list-style: none;
 }
 :root{
-    --main-color: #78CC6D;
+    /* --main-color: #78CC6D; */
+    --main-color: #018343;
     --secondary-color: #5F85DB;
     --text-color: #F6F4F0;
     --bg-color: #222222;
@@ -32,7 +33,7 @@ ul{
 }
 /* Light mode  */
 .light-mode{
-    --main-color: #78CC6D;
+    --main-color: #018343;
     --secondary-color: #5F85DB;
     --text-color: #222222;
     --bg-color: #ebebeb;
@@ -530,7 +531,7 @@ header ul li a.active{
     color: var(--main-color);
 }
 .pricing-box-feature li span{
-    margin: -5px;
+    /* margin: -5px; */
     display: flex;
     color: var(--text-color);
     font-size: 0.9rem;
