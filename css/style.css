@@ -263,7 +263,7 @@ header ul li a.active{
 /* About us */
 #about-us{
     border-radius: 0px 30px 0px 0px;
-    padding: 85px 50px;
+    padding: 40px;
 }
 #about-us h3{
     color: var(--text-color);
@@ -355,7 +355,7 @@ header ul li a.active{
 }
 .skill-box{
     border: 1px solid var(--border-color);
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     position: relative;
 }

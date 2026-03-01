@@ -1,6 +1,6 @@
 // word transition effect
 document.addEventListener("DOMContentLoaded", ()=>{
-    const roles = ['Computer Science Student', 'IT Student'];
+    const roles = ['Full Stack Python Developer','Computer Science Student'];
     const roleElement = document.getElementById('role');
     let roleIndex = 0;
     let letterIndex = 0;
