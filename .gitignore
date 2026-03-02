@@ -1,1 +1,37 @@
-node_modules/ 
+# Node / package stuff
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Ignore sensitive or source files
+images/*.pdf
+images/*.psd
+images/*.ai
+images/*.docx
+assets/private/
+
+# Ignore temporary / cache files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Optional: ignore system files created by Windows
+ehthumbs.db
+Desktop.ini
+
+# Keep your main portfolio assets tracked
+# images used in projects
+# css and JS for the live site
