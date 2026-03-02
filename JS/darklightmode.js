@@ -1,49 +1,60 @@
-// Dark Light mode
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+
     const toggleButton = document.querySelector(".dark-light-btn");
     const htmlElement = document.documentElement;
 
-    const currentMode = localStorage.getItem("mode");
+    // =========================
+    // THEME (Light Default)
+    // =========================
+    const savedMode = localStorage.getItem("mode");
 
-    if (currentMode === "light"){
-        htmlElement.classList.add("light-mode");
-        toggleButton.innerHTML = "<i class='fa-regular fa-moon' ></i>";
-    }
-    
-    toggleButton.addEventListener("click", ()=>{
-        htmlElement.classList.toggle("light-mode");
+    const setTheme = (mode) => {
+        if (mode === "dark") {
+            htmlElement.classList.remove("light-mode");
+            toggleButton.innerHTML = "<i class='fa-regular fa-sun'></i>";
+        } else {
+            htmlElement.classList.add("light-mode");
+            toggleButton.innerHTML = "<i class='fa-regular fa-moon'></i>";
+        }
+        localStorage.setItem("mode", mode);
+    };
 
-        //update the button icon
-        const isLightMode = htmlElement.classList.contains("light-mode");
-        toggleButton.innerHTML = isLightMode ? "<i class='fa-regular fa-moon' ></i>" : "<i class='fa-regular fa-sun' ></i>";
+    // Default to light if nothing saved
+    setTheme(savedMode === "dark" ? "dark" : "light");
 
-        //save mode in local storage
-        localStorage.setItem("mode", isLightMode ? "light" : "dark");
+    toggleButton.addEventListener("click", () => {
+        const isLight = htmlElement.classList.contains("light-mode");
+        setTheme(isLight ? "dark" : "light");
     });
 
-    // nav auto active on their section
-    const section = document.querySelectorAll("section");
+
+    // =========================
+    // ACTIVE NAV ON SCROLL (Optimized)
+    // =========================
+    const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("ul li a");
 
-    function setActiveLink(){
-        let currentSection = "";
+    const setActiveLink = () => {
+        let current = "";
 
-        section.forEach((section)=>{
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
 
-            if (window.scrollY >= sectionTop - sectionHeight / 3) {
-                currentSection = section.getAttribute("id");
+            if (rect.top <= 150 && rect.bottom >= 150) {
+                current = section.id;
             }
         });
 
-        navLinks.forEach((link)=>{
-            link.classList.remove("active");
-            if (link.getAttribute("href") === `#${currentSection}`) {
-                link.classList.add("active");
-            }
-        })
-    }
-    window.addEventListener("scroll", setActiveLink);
-});
+        navLinks.forEach(link => {
+            link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${current}`
+            );
+        });
+    };
 
+    window.addEventListener("scroll", setActiveLink);
+
+    // Run once on page load
+    setActiveLink();
+});
