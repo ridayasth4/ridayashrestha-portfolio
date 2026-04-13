@@ -47,11 +47,6 @@ assets/private/
 # ========================
 # Keep only the necessary portfolio assets
 # ========================
-# Track only images used in projects
-!images/*.jpg
-!images/*.png
-!images/*.svg
-!images/*.gif
 
 # Track CSS and JS folders for live site
 !css/
