@@ -56,6 +56,3 @@ assets/private/
 # Track CSS and JS folders for live site
 !css/
 !js/
-
-# Ignore everything else in images folder
-images/*
